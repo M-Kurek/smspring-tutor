@@ -1,0 +1,31 @@
+buildscript {
+    ext {
+        springBootVersion = '1.2.5.RELEASE'
+        statemachineVersion = '1.2.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+group = 'packt.springboot'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile("org.springframework.statemachine:spring-statemachine-core:${statemachineVersion}")
+    compile group: 'org.springframework.shell', name: 'spring-shell', version: '1.2.0.RELEASE'
+    //compile("org.springframework.boot:spring-boot-starter-parent")
+    compile("org.springframework.boot:spring-boot-starter")
+
+    testCompile("org.springframework.statemachine:spring-statemachine-test:${statemachineVersion}")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
